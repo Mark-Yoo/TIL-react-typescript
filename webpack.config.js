@@ -8,6 +8,7 @@ module.exports = {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
   entry: {
+    // 메인이 될 파일
     app: './client'
   },
   module: {
