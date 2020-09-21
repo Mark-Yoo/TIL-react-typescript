@@ -5,15 +5,7 @@
 
 ## 2. 공부 순서
 
-- [구구단]: ./GuguDan.tsx
-
-- [구구단(클래스 사용)]: ./GuguDanClass.tsx
-
-- [끝말잇기]: ./WordRelay.tsx
-
-- [끝말잇기(클래스 사용)]: ./WordRelayClass.tsx
-
-  
+- [구구단](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/GuguDan.tsx)
 
 ## 3. 프로젝트에서 배운 점
 > 타입스크립트에서 import React from 'react' 등을 사용할 수 없는 이유는 react에 default가 없기 때문이다. 때문에 import * as React from 'react'를 사용하거나 tsconfig.json에서 esModuleInterop: true를 설정해서 사용 할 수 있다.
