@@ -3,7 +3,19 @@
 ## 1. 프로젝트의 의의
 > React에 Typescript를 적용하여 활용하기 위한 공부
 
-## 2. 프로젝트에서 배운 점
+## 2. 공부 순서
+
+- [구구단]: ./GuguDan.tsx
+
+- [구구단(클래스 사용)]: ./GuguDanClass.tsx
+
+- [끝말잇기]: ./WordRelay.tsx
+
+- [끝말잇기(클래스 사용)]: ./WordRelayClass.tsx
+
+  
+
+## 3. 프로젝트에서 배운 점
 > 타입스크립트에서 import React from 'react' 등을 사용할 수 없는 이유는 react에 default가 없기 때문이다. 때문에 import * as React from 'react'를 사용하거나 tsconfig.json에서 esModuleInterop: true를 설정해서 사용 할 수 있다.
 
 - input!.focus() 와 같이 타입에 느낌표를 사용하기 위해서는 input이 절대로 null이 아니라는 확신이 필요하다. 만에 하나 null 값일 경우 에러가 발생할 수 있기 때문이다.
@@ -13,3 +25,5 @@
   > React에서 제안하는 개발 방향은 대부분 class보다는 hooks를 사용하는 방안이며 대체로 코드는 hooks가 더 짧다.
 
 - useCallback으로 함수를 감싸는 경우에 생길 수 있는 문제로는 타입추론이 제대로 되지 않는 경우를 들 수 있는데 useCallback으로 감싸진 함수의 파라미터가 any 타입으로 추론되는 경우가 생긴다. 이를 해결하기 위해서 useCallback에 제네릭을 사용하여 타입을 정해줄 수도 있으나 인라인으로 제네릭을 사용할 경우 코드가 길어지므로 별도의 함수로 분리하는 것을 추천한다.
+  - 제네릭을 사용하면 타입 추론이 잘 되는 대신 가독성이 떨어진다는 단점이 있다.
+
