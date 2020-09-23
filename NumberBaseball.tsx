@@ -12,11 +12,17 @@ const getNumbers = () => {
   return array;
 }
 
+interface TryInfo {
+  try: string;
+  result: string;
+}
+
 const NumberBaseball = () => {
   const [answer, setAnswer] = useState(getNumbers());
   const [value, setValue] = useState('');
   const [result, setResult] = useState('');
-  const [tries, setTries] = useState([]);
+  // tries에 빈 배열을 넣는 경우 타이핑 never로 에러가 생기는 경우가 있다. 이 때는 인터페이스로 타입을 지정해주는 방법이 있다.
+  const [tries, setTries] = useState<TryInfo[]>([]);
   const inputEl = useRef<HTMLInputElement>(null);
 
   const onSubmitForm = useCallback<(e: React.FormEvent) => void>((e) => {
@@ -32,8 +38,47 @@ const NumberBaseball = () => {
       setResult('홈런');
       alert('게임을 다시 시작합니다.');
       setValue('');
+      setAnswer(getNumbers());
+      setTries([]);
+      if (input) {
+        input.focus();
+      }
+    } else {
+      const answerArray = value.split('').map((v) => parseInt(v));
+      let strike = 0;
+      let ball = 0;
+      if (tries.length >= 9) {
+        setResult(`10번 이상 틀려서 실패입니다. ${answer.join(',')} 였습니다.`);
+        setValue('');
+        setAnswer(getNumbers());
+        setTries([]);
+        if (input) {
+          input.focus();
+        }
+      } else {
+        console.log('답:', answer.join(''));
+        for (let i = 0; i < 4; i++) {
+          if (answerArray[i] === answer[i]) {
+            console.log('strike', answerArray[i], answer[i]);
+            strike += 1;
+          } else if (answer.includes(answerArray[i])) {
+            console.log('ball', answerArray[i], answer.indexOf(answerArray[i]));
+            ball += 1;
+          }
+        }
+        setTries(t =>([
+          ...t, {
+            try: value,
+            result: `${strike} 스트라이크, ${ball} 볼`
+          },
+        ]));
+        setValue('');
+        if (input) {
+          input.focus();
+        }
+      }
     }
-  }, [answer, value]);
+  }, [answer, tries.length, value]);
 
   return (
     <>
