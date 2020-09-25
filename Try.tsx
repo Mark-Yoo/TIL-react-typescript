@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import { TryInfo } from './NumberBaseball';
+import { TryInfo } from './types';
 
 // state는 useState가 대체하여 제네릭에서 타이핑이 없다.
 const Try: FunctionComponent<{tryInfo: TryInfo}> = ({ tryInfo }) => {
