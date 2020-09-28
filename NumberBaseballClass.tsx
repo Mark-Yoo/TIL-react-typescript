@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Try from './Try';
+import Try from './TryClass';
 import { TryInfo } from './types';
 import { Component, createRef } from 'react';
 
