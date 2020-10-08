@@ -9,6 +9,33 @@ const RespondCheck = () => {
   const startTime = useRef(0);
   const endTime = useRef(0);
 
+  const onClickScreen = useCallback(() => {
+    if (state === 'waiting') {
+      timeout.current = setTimeout(() => {
+        setState('now');
+        setMessage('지금 클릭');
+        startTime.current = new Date().getTime();
+      }, Math.floor(Math.random() * 1000) + 2000);
+      setState('ready');
+      setMessage('초록색이 되면 클릭!');
+    } else if (state === 'ready') {
+      clearTimeout(timeout.current);
+      setState('waiting');
+      setMessage('아직 초록색이 되지 않았습니다! 다시 진행해주세요!');
+    } else if (state === 'now') {
+      endTime.current = new Date().getTime();
+      setState('waiting');
+      setMessage('클릭해서 시작하기');
+      setResult((prevResult) => {
+        return [...prevResult, endTime.current - startTime.current];
+      });
+    }
+  }, [state]);
+
+  const onReset = useCallback(() => {
+    setResult([]);
+  }, []);
+
   const renderAverage = () => {
     return result.length === 0 ? null :
       <>
