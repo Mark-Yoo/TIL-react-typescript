@@ -29,4 +29,4 @@
 - useCallback으로 함수를 감싸는 경우에 생길 수 있는 문제로는 타입추론이 제대로 되지 않는 경우를 들 수 있는데 useCallback으로 감싸진 함수의 파라미터가 any 타입으로 추론되는 경우가 생긴다. 이를 해결하기 위해서 useCallback에 제네릭을 사용하여 타입을 정해줄 수도 있으나 인라인으로 제네릭을 사용할 경우 코드가 길어지므로 별도의 함수로 분리하는 것을 추천한다.
   - 제네릭을 사용하면 타입 추론이 잘 되는 대신 가독성이 떨어진다는 단점이 있다.
 
-- current가 Readonly 인 것은 useRef가 
+- current가 Readonly 인 것은 useRef의 종류가 약 3가지 정도 된다는 점에서 착안한다. useRef를 사용하면 값이 바뀌어도 화면 리렌더링이 일어나지 않는데, type definition를 살펴보면 RefObject를 반환하는 useRef와 MutableRefObject를 반환하는 useRef가 대표적인데 제네릭이 undefined인지, null인지의 여부에 따라 이 세가지로 나눠지게 된다.
