@@ -6,9 +6,16 @@
 ## 2. 공부 순서
 
 - [구구단](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/GuguDan.tsx)
+
 - [구구단(클래스 사용)](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/GuguDanClass.tsx)
+
 - [끝말잇기](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/WordRelay.tsx)
+
 - [끝말잇기(클래스 사용)](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/WordRelayClass.tsx)
+
+- [반응속도 체크](https://github.com/Mark-Yoo/TIL-react-typescript/blob/master/RespondCheck.tsx)
+
+  
 
 ## 3. 프로젝트에서 배운 점
 > 타입스크립트에서 import React from 'react' 등을 사용할 수 없는 이유는 react에 default가 없기 때문이다. 때문에 import * as React from 'react'를 사용하거나 tsconfig.json에서 esModuleInterop: true를 설정해서 사용 할 수 있다.
@@ -22,3 +29,4 @@
 - useCallback으로 함수를 감싸는 경우에 생길 수 있는 문제로는 타입추론이 제대로 되지 않는 경우를 들 수 있는데 useCallback으로 감싸진 함수의 파라미터가 any 타입으로 추론되는 경우가 생긴다. 이를 해결하기 위해서 useCallback에 제네릭을 사용하여 타입을 정해줄 수도 있으나 인라인으로 제네릭을 사용할 경우 코드가 길어지므로 별도의 함수로 분리하는 것을 추천한다.
   - 제네릭을 사용하면 타입 추론이 잘 되는 대신 가독성이 떨어진다는 단점이 있다.
 
+- current가 Readonly 인 것은 useRef가 
