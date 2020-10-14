@@ -5,6 +5,7 @@ const RespondCheck = () => {
   const [state, setState] = useState('waiting');
   const [message, setMessage] = useState('클릭 후 시작');
   const [result, setResult] = useState<number[]>([]);
+  // <T | null>을 하나의 타입으로 생각하는게 좋다
   const timeout = useRef<number | null>(null);
   const startTime = useRef(0);
   const endTime = useRef(0);
@@ -18,13 +19,13 @@ const RespondCheck = () => {
         startTime.current = new Date().getTime();
       }, Math.floor(Math.random() * 1000) + 2000);
       setState('ready');
-      setMessage('초록색이 되면 클릭!');
+      setMessage('화면이 바뀌면 클릭!');
     } else if (state === 'ready') {
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
       setState('waiting');
-      setMessage('아직 초록색이 되지 않았습니다! 다시 진행해주세요!');
+      setMessage('아직 화면이 바뀌지 않았습니다! 다시 진행해주세요!');
     } else if (state === 'now') {
       endTime.current = new Date().getTime();
       setState('waiting');
