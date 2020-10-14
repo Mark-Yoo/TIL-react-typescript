@@ -30,3 +30,5 @@
   - 제네릭을 사용하면 타입 추론이 잘 되는 대신 가독성이 떨어진다는 단점이 있다.
 
 - current가 Readonly 인 것은 useRef의 종류가 약 3가지 정도 된다는 점에서 착안한다. useRef를 사용하면 값이 바뀌어도 화면 리렌더링이 일어나지 않는데, type definition를 살펴보면 RefObject를 반환하는 useRef와 MutableRefObject를 반환하는 useRef가 대표적인데 제네릭이 undefined인지, null인지의 여부에 따라 이 세가지로 나눠지게 된다.
+
+- 항상 definition의 속성을 확인한 상태에서 가장 정확한 문법을 사용해야한다.
