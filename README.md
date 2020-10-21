@@ -55,8 +55,6 @@ const arrayLengthWithGeneric = <T>(array: T[]): number => array.length;
 
 - 제네릭 함수의 타입 추론 기능
 
-  
-
   ```typescript
   // 제네릭 형태로 구현된 함수는 타입 변수를 활용하는 명태로 명시해주어야 한다.
   // 함수 이름<타입 변수>(매개변수)
