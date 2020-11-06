@@ -62,6 +62,7 @@ const arrayLengthWithGeneric = <T>(array: T[]): number => array.length;
   // 함수 이름<타입 변수>(매개변수)
   // 하지만 타입 변수를 적어주지 않더라도 타입 추론을 통해서 생략된 타입을 찾아낸다.
   
+  
   const identifyBoolean = <T>(n: T): T => n;
   
   // ex1
@@ -69,6 +70,7 @@ const arrayLengthWithGeneric = <T>(array: T[]): number => array.length;
   
   // ex2
   console.log(identify(true));
-  ```
-
+```
   
+  
+
